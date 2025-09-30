@@ -1,26 +1,38 @@
-@import "tailwindcss";
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --tarjeta-radius: 12px;
+  --tarjeta-padding: 18px;
+  --titulo-color: #1f2937; /* gray-800 */
+  --contenido-color: #4b5563; /* gray-600 */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.tarjeta-global {
+  border: 2px solid transparent; /* el color lo fijamos desde el style prop */
+  padding: var(--tarjeta-padding);
+  border-radius: var(--tarjeta-radius);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
+  background: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.tarjeta-global:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.titulo-global {
+  font-size: 1.25rem;
+  color: var(--titulo-color);
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.contenido-global {
+  color: var(--contenido-color);
+  line-height: 1.6;
+  margin: 0;
 }
